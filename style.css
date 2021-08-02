@@ -1,10 +1,14 @@
+body {
+    font-family: 'Courier New', monospace;
+}
+
 .card-holder {
     display: flex;
-    
+    justify-content: space-around;
 }
 
 .card {
-    border-style: solid;
-    border-color: black;
-    border-width: 3px;
+    border: 1px black solid;
+    padding: 10px;
+    flex-basis: 30%;
 }

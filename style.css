@@ -1,14 +1,39 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
 body {
     font-family: 'Courier New', monospace;
 }
 
-.card-holder {
+header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+@media(min-width:768px) { /* Anything above this breakpoint will have this */
+    .card-holder {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: wrap;
+        align-content: flex-start;
+    }
 }
 
 .card {
     border: 1px black solid;
     padding: 10px;
+    margin: 10px;
     flex-basis: 30%;
+    border-radius: 10px;
+}
+
+#new {
+    padding: 10px;
+    border-radius: 10px;
+    /* flex-basis: 100%; */
 }

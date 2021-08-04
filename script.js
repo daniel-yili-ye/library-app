@@ -11,6 +11,8 @@ addBookToLibrary(b3)
 addBookToLibrary(b4)
 addBookToLibrary(b5)
 displayBooks()
+let readBtn = document.querySelectorAll("button[class='read']")
+let removeBtn = document.querySelectorAll("button[class='remove']")
 
 function Book(title, author, pages, read) {
   this.title = title
@@ -42,10 +44,12 @@ function displayBooks() {
     card.append(pages)
 
     let read = document.createElement("button")
+    read.classList.add('read')
     read.innerText = myLibrary[i].read ? "Read" : "Not Read"
     card.append(read)
 
     let remove = document.createElement("button")
+    remove.classList.add('remove')
     remove.innerText = "Remove"
     card.append(remove)
     
@@ -53,7 +57,20 @@ function displayBooks() {
   }
 }
 
-// read/not read function
+// read/not read event listener
+readBtn.forEach(b => b.addEventListener("click", e => {
+  // visual fix
+  e.target.innerText = (e.target.innerText == "Read") ? "Not Read" : "Read"
+  
+  // update code to actually change the myLibrary array and have the displayBooks function run again
+}))
 
+// remove event listener
+removeBtn.forEach(b => b.addEventListener("click", e => {
+  // visual fix
+  e.target.parentNode.remove()
+  
+  // update code to actually change the myLibrary array and have the displayBooks function run again
+}))
 
-// remove function
+// popup to add another book

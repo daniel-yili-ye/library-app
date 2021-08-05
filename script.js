@@ -75,9 +75,12 @@ removeBtn.forEach(b => b.addEventListener("click", e => {
   e.target.parentNode.remove()
   
   // update code to actually change the myLibrary array and have the displayBooks function run again
+  myLibrary.splice(e.target.parentNode.id, 1)
 }))
 
 // popup to add another book
 newBook.addEventListener("click", e => {
   console.log(e)
 })
+
+// make function to find book index

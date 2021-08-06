@@ -9,6 +9,7 @@ displayBooks()
 let readBtn = document.querySelectorAll("button[class='read']")
 let removeBtn = document.querySelectorAll("button[class='remove']")
 let newBook = document.querySelector("button[id='new']")
+let cards = document.querySelectorAll("div[class='card']")
 
 function Book(title, author, pages, read) {
   this.title = title
@@ -65,8 +66,8 @@ readBtn.forEach(b => b.addEventListener("click", e => {
   e.target.innerText = (e.target.innerText == "Read") ? "Not Read" : "Read"
   
   // update code to actually change the myLibrary array and have the displayBooks function run again
+  // instead of using e.target.parentNode.id use the findIndex function
   myLibrary[e.target.parentNode.id].read = (myLibrary[e.target.parentNode.id].read == true) ? false : true
-  console.log(myLibrary[e.target.parentNode.id])
 }))
 
 // remove event listener
@@ -76,11 +77,23 @@ removeBtn.forEach(b => b.addEventListener("click", e => {
   
   // update code to actually change the myLibrary array and have the displayBooks function run again
   myLibrary.splice(e.target.parentNode.id, 1)
+  resetIndex()
 }))
 
 // popup to add another book
 newBook.addEventListener("click", e => {
-  console.log(e)
+  // show popup w/ entry fields
+  
+  // add book to library
+  addBookToLibrary(title, author, pages, read)
+  // create card with id = myLibrary.length
+  createCard(myLibrary.length)
 })
 
 // make function to find book index
+function resetIndex() {
+  cards = document.querySelectorAll("div[class='card']")
+  for (let i=0; i<cards.length; i++) {
+    cards[i].id = i
+  }
+}

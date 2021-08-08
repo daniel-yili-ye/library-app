@@ -8,7 +8,7 @@
 
 <body>
     <header>
-        <h1>Library</h1>
+        <h1>📚 Library</h1>
         <button id="new">NEW BOOK</button>
     </header>
     <hr size="1" width="100%" color="black">
@@ -18,7 +18,37 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>New Book</p>
+            <h1>New Book</h1>
+            <form>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="booktitle" placeholder="Book Title...">
+
+                <label for="author">Author</label>
+                <input type="text" id="author" name="bookauthor" placeholder="Book Author...">
+
+                <label for="pages">Pages</label>
+                <input type="number" id="pages" name="bookpages" placeholder="Number of Pages...">
+
+                <label for="status">Status</label>
+
+                <!-- <div id="status">
+                    <div>
+                        <input type="radio" name="status" id="read" checked>
+                        <label for="read">Read</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="status" id="notread">
+                        <label for="notread">Not Read</label>
+                    </div>
+                </div> -->
+
+                <select id="read-notread" name="read-notread">
+                    <option value="read">Read</option>
+                    <option value="notread">Not Read</option>
+                </select>
+
+                <input type="submit" value="Add">
+            </form>
         </div>
     </div>
     <script src="script.js"></script>

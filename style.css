@@ -91,7 +91,7 @@ input[type=text], input[type=number], select {
     margin: 8px 0;
 }
   
-input[type=submit] {
+input[id=add] {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -102,6 +102,6 @@ input[type=submit] {
     cursor: pointer;
 }
   
-input[type=submit]:hover {
+input[id=add]:hover {
     background-color: #45a049;
 }

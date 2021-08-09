@@ -12,6 +12,7 @@ let newBook = document.querySelector("button[id='new']")
 let cards = document.querySelectorAll("div[class='card']")
 let modal = document.getElementById("myModal")
 let span = document.getElementsByClassName("close")[0]
+let add = document.getElementById("add")
 
 function Book(title, author, pages, read) {
   this.title = title
@@ -60,6 +61,8 @@ function createCard(i) {
   card.append(remove)
   
   cardHolder.append(card)
+  // refresh the read button
+  // refresh the remove button
 }
 
 // read/not read event listener
@@ -86,12 +89,6 @@ removeBtn.forEach(b => b.addEventListener("click", e => {
 newBook.addEventListener("click", () => {
   // show popup w/ entry fields
   modal.style.display = "block";
-  
-  // STICK THIS INTO A SUBMIT BUTTON FUNCTION WITH AN EVENT LISTENER
-  // add book to library
-  addBookToLibrary(title, author, pages, read)
-  // create card with id = myLibrary.length
-  createCard(myLibrary.length)
 })
 
 // When the user clicks on <span> (x), close the modal
@@ -112,3 +109,16 @@ function resetIndex() {
     cards[i].id = i
   }
 }
+
+add.addEventListener("click", () => {
+  // STICK THIS INTO A ADD BUTTON FUNCTION WITH AN EVENT LISTENER
+  let t = document.getElementById("title").value
+  let a = document.getElementById("author").value
+  let p = document.getElementById("pages").value
+  let r = (document.getElementById("read-notread").value) == "Read" ? true : false
+
+  // add book to library
+  addBookToLibrary(t, a, p, r)
+  // create card with id = myLibrary.length
+  createCard(myLibrary.length - 1)
+})

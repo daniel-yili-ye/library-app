@@ -9,7 +9,6 @@ displayBooks()
 readBtnRefresh()
 removeBtnRefresh()
 let newBook = document.querySelector("button[id='new']")
-let cards = document.querySelectorAll("div[class='card']")
 let modal = document.getElementById("myModal")
 let span = document.getElementsByClassName("close")[0]
 let add = document.getElementById("add")
@@ -80,11 +79,12 @@ function readBtnRefresh() {
 function removeBtnRefresh() {
   let removeBtn = document.querySelectorAll("button[class='remove']")
   removeBtn.forEach(b => b.addEventListener("click", e => {
+    // update code to actually change the myLibrary array and have the displayBooks function run again
+    myLibrary.splice(e.target.parentNode.id, 1)
+    
     // visual fix
     e.target.parentNode.remove()
     
-    // update code to actually change the myLibrary array and have the displayBooks function run again
-    myLibrary.splice(e.target.parentNode.id, 1)
     resetIndex()
   }))
 }
@@ -108,7 +108,7 @@ window.addEventListener("click", (e) => {
 
 // make function to find book index
 function resetIndex() {
-  cards = document.querySelectorAll("div[class='card']")
+  let cards = document.querySelectorAll("div[class='card']")
   for (let i=0; i<cards.length; i++) {
     cards[i].id = i
   }
@@ -136,3 +136,6 @@ add.addEventListener("click", () => {
   document.getElementById("pages").value = ""
   document.getElementById("read-notread").value = "read"
 })
+
+// TODO
+// - fix remove button index bug

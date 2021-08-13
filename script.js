@@ -81,12 +81,10 @@ function removeBtnRefresh() {
   removeBtn.forEach(b => b.addEventListener("click", e => {
     // update code to actually change the myLibrary array and have the displayBooks function run again
     myLibrary.splice(e.target.parentNode.id, 1)
-    
     // visual fix
     e.target.parentNode.remove()
-    
-    resetIndex()
   }))
+  resetIndex()
 }
 
 // popup to add another book
@@ -139,3 +137,4 @@ add.addEventListener("click", () => {
 
 // TODO
 // - fix remove button index bug
+// - fix read/not read button not working sometimes

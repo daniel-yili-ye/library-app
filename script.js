@@ -80,11 +80,14 @@ function removeBtnRefresh() {
   let removeBtn = document.querySelectorAll("button[class='remove']")
   removeBtn.forEach(b => b.addEventListener("click", e => {
     // update code to actually change the myLibrary array and have the displayBooks function run again
+    console.log(e.target.parentNode)
     myLibrary.splice(e.target.parentNode.id, 1)
+    console.log(e.target.parentNode)
     // visual fix
     e.target.parentNode.remove()
+    resetIndex()
   }))
-  resetIndex()
+  
 }
 
 // popup to add another book

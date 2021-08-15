@@ -65,14 +65,17 @@ function createCard(i) {
 // read/not read event listener
 function readBtnRefresh() {
   let readBtn = document.querySelectorAll("button[class='read']")
-  readBtn.forEach(b => b.addEventListener("click", e => {
-    // visual fix
-    e.target.innerText = (e.target.innerText == "Read") ? "Not Read" : "Read"
-    
-    // update code to actually change the myLibrary array and have the displayBooks function run again
-    // instead of using e.target.parentNode.id use the findIndex function
-    myLibrary[e.target.parentNode.id].read = (myLibrary[e.target.parentNode.id].read == true) ? false : true
-  }))
+  readBtn.forEach(b => {
+    b.removeEventListener("click", )
+    b.addEventListener("click", e => {
+      // visual fix
+      e.target.innerText = (e.target.innerText == "Read") ? "Not Read" : "Read"
+      
+      // update code to actually change the myLibrary array and have the displayBooks function run again
+      // instead of using e.target.parentNode.id use the findIndex function
+      myLibrary[e.target.parentNode.id].read = (myLibrary[e.target.parentNode.id].read == true) ? false : true
+    }
+  )})
 }
 
 // remove event listener
@@ -80,14 +83,11 @@ function removeBtnRefresh() {
   let removeBtn = document.querySelectorAll("button[class='remove']")
   removeBtn.forEach(b => b.addEventListener("click", e => {
     // update code to actually change the myLibrary array and have the displayBooks function run again
-    console.log(e.target.parentNode)
     myLibrary.splice(e.target.parentNode.id, 1)
-    console.log(e.target.parentNode)
     // visual fix
     e.target.parentNode.remove()
     resetIndex()
   }))
-  
 }
 
 // popup to add another book
@@ -139,5 +139,5 @@ add.addEventListener("click", () => {
 })
 
 // TODO
-// - fix remove button index bug
+// - fix remove button index bug => caused by applying multiple functions to each button
 // - fix read/not read button not working sometimes

@@ -141,3 +141,4 @@ add.addEventListener("click", () => {
 // TODO
 // - fix remove button index bug => caused by applying multiple functions to each button
 // - fix read/not read button not working sometimes
+// 

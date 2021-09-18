@@ -23,49 +23,46 @@ function Book(title, author, pages, read) {
 
 class Library {
   constructor() {
-    this.myLibrary = []
+    this.books = []
   }
   
   addBookToLibrary(book) {
-    this.myLibrary.push(book)
+    this.books.push(book)
   }
-
 }
+
+const library = new Library()
 
 function displayBooks() {
-  for (let i=0; i<myLibrary.length; i++) {
-    createCard(i)
+  resetBooks()
+  for (let book of library.books) {
+    createCard(book)
   }
 }
 
-function createCard(i) {
-  let card = document.createElement("div")
-  card.classList.add('card')
-  // give DOM id that relates to card index
-  card.id = i
-
-  let title = document.createElement("h2")
-  title.innerText = myLibrary[i].title
-  card.append(title)
-
-  let author = document.createElement("p")
-  author.innerText = myLibrary[i].author
-  card.append(author)
-
-  let pages = document.createElement("p")
-  pages.innerText = myLibrary[i].pages + " pages"
-  card.append(pages)
-
-  let read = document.createElement("button")
-  read.classList.add('read')
-  read.innerText = myLibrary[i].read ? "Read" : "Not Read"
-  card.append(read)
-
-  let remove = document.createElement("button")
-  remove.classList.add('remove')
-  remove.innerText = "Remove"
-  card.append(remove)
+function createCard(book) {
+  const card = document.createElement("div")
+  const title = document.createElement("h2")
+  const author = document.createElement("p")
+  const pages = document.createElement("p")
+  const read = document.createElement("button")
+  const remove = document.createElement("button")
   
+  card.classList.add('card')
+  read.classList.add('read')
+  remove.classList.add('remove')
+  
+  title.innerText = book.title
+  author.innerText = book.author
+  pages.innerText = book.pages + " pages"
+  read.innerText = book.read ? "Read" : "Not Read"
+  remove.innerText = "Remove"
+  
+  card.append(title)
+  card.append(author)
+  card.append(pages)
+  card.append(read)
+  card.append(remove)
   cardHolder.append(card)
 }
 

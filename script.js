@@ -4,12 +4,6 @@ const span = document.getElementsByClassName("close")[0]
 const add = document.getElementById("add")
 const cardHolder = document.querySelector("div[class='card-holder']")
 
-addBookToLibrary("Bible", "God", 1000, true)
-addBookToLibrary("The Hobbit", "Tolkien", 965, true)
-addBookToLibrary("Heat Shock Proteins", "Joe Rogan", 203, false)
-addBookToLibrary("Metaphysics of Pepe", "Jordan Peterson", 9030, false)
-addBookToLibrary("OK BOOMER", "TikTok", 90, true)
-
 displayBooks()
 readBtnRefresh()
 removeBtnRefresh()
@@ -26,18 +20,27 @@ class Library {
     this.books = []
   }
   
-  addBookToLibrary(book) {
+  addBook(book) {
     this.books.push(book)
   }
 }
 
 const library = new Library()
+library.addBook("Bible", "God", 1000, true)
+library.addBook("The Hobbit", "Tolkien", 965, true)
+library.addBook("Heat Shock Proteins", "Joe Rogan", 203, false)
+library.addBook("Metaphysics of Pepe", "Jordan Peterson", 9030, false)
+library.addBook("OK BOOMER", "TikTok", 90, true)
 
 function displayBooks() {
   resetBooks()
   for (let book of library.books) {
     createCard(book)
   }
+}
+
+function resetBooks() {
+  cardHolder.innerHTML = ""
 }
 
 function createCard(book) {
@@ -127,7 +130,7 @@ add.addEventListener("click", () => {
   let r = (document.getElementById("read-notread").value) == "read" ? true : false
 
   // add book to library
-  addBookToLibrary(t, a, p, r)
+  addBook(t, a, p, r)
   // create card with id = myLibrary.length
   createCard(myLibrary.length - 1)
   // refresh the read button

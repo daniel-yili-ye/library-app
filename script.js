@@ -1,17 +1,18 @@
-let myLibrary = [];
-let cardHolder = document.querySelector("div[class='card-holder']")
+const newBook = document.querySelector("button[id='new']")
+const modal = document.getElementById("myModal")
+const span = document.getElementsByClassName("close")[0]
+const add = document.getElementById("add")
+const cardHolder = document.querySelector("div[class='card-holder']")
+
 addBookToLibrary("Bible", "God", 1000, true)
 addBookToLibrary("The Hobbit", "Tolkien", 965, true)
 addBookToLibrary("Heat Shock Proteins", "Joe Rogan", 203, false)
 addBookToLibrary("Metaphysics of Pepe", "Jordan Peterson", 9030, false)
 addBookToLibrary("OK BOOMER", "TikTok", 90, true)
+
 displayBooks()
 readBtnRefresh()
 removeBtnRefresh()
-let newBook = document.querySelector("button[id='new']")
-let modal = document.getElementById("myModal")
-let span = document.getElementsByClassName("close")[0]
-let add = document.getElementById("add")
 
 function Book(title, author, pages, read) {
   this.title = title
@@ -20,9 +21,15 @@ function Book(title, author, pages, read) {
   this.read = read
 }
 
-function addBookToLibrary(title, author, pages, read) {
-  const b = new Book(title, author, pages, read)
-  myLibrary.push(b)
+class Library {
+  constructor() {
+    this.myLibrary = []
+  }
+  
+  addBookToLibrary(book) {
+    this.myLibrary.push(book)
+  }
+
 }
 
 function displayBooks() {

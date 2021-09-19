@@ -1,12 +1,8 @@
 const newBook = document.querySelector("button[id='new']")
 const modal = document.getElementById("myModal")
 const span = document.getElementsByClassName("close")[0]
-const add = document.getElementById("add")
+const add = document.getElementById("submit")
 const cardHolder = document.querySelector("div[class='card-holder']")
-
-displayBooks()
-readBtnRefresh()
-removeBtnRefresh()
 
 function Book(title, author, pages, read) {
   this.title = title
@@ -144,6 +140,10 @@ add.addEventListener("click", () => {
   document.getElementById("pages").value = ""
   document.getElementById("read-notread").value = "read"
 })
+
+displayBooks()
+readBtnRefresh()
+removeBtnRefresh()
 
 // TODO
 // - fix remove button index bug => caused by applying multiple functions to each button

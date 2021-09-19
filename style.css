@@ -1,19 +1,54 @@
-/* * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-} */
+}
 
 body, button {
     font-family: 'Helvetica Neue', Sans-Serif;
-    /* font-family: 'Roboto', sans-serif; */
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0px 10px;
+    padding: 10px 50px;
+    background-color: rgb(235,236,237);
+}
+
+#new {
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    background-color: rgb(235,236,237);
+}
+
+#new:hover {
+    background-color: rgb(155,154,151,0.4);
+}
+
+.read {
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    display: block;
+    background-color: rgb(77,171,154,0.2);
+}
+
+.read:hover {
+    background-color: rgb(77,171,154,0.5);
+}
+
+.remove {
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    display: block;
+    background-color: rgb(255,115,105,0.2);
+}
+
+.remove:hover{
+    background-color: rgb(255,115,105,0.5);
 }
 
 @media(min-width:768px) { /* Anything above this breakpoint will have this */
@@ -22,21 +57,17 @@ header {
         justify-content: flex-start;
         flex-flow: wrap;
         align-content: flex-start;
+        justify-content: center;
     }
 }
 
 .card {
-    border: 1px black solid;
+    border: 1px solid;
+    border-color: rgb(206,205,202);
     padding: 10px;
     margin: 10px;
     flex-basis: 30%;
-    border-radius: 10px;
-}
-
-#new {
-    padding: 10px;
-    border-radius: 10px;
-    /* flex-basis: 100%; */
+    border-radius: 5px;
 }
 
 /* The Modal (background) */
@@ -91,17 +122,17 @@ input[type=text], input[type=number], select {
     margin: 8px 0;
 }
   
-input[id=add] {
+input[id=submit] {
     width: 100%;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 2px;
     cursor: pointer;
 }
   
-input[id=add]:hover {
+input[id=submit]:hover {
     background-color: #45a049;
 }

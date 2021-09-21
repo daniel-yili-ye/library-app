@@ -130,6 +130,11 @@ submit.onclick = (event) => {
   displayBooks()
   span.click()
   // clear data from fields
+  document.getElementById("title").value = ""
+  document.getElementById("author").value = ""
+  document.getElementById("pages").value = ""
+  status.options[status.selectedIndex].innerText = "Read"
+
   // store data
 }
 

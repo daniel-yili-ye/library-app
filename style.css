@@ -16,7 +16,7 @@ header {
     /* background-color: rgb(235,236,237); */
 }
 
-#new {
+#newBook {
     border: none;
     border-radius: 2px;
     padding: 5px;
@@ -77,7 +77,7 @@ header {
 }
 
 /* The Modal (background) */
-.modal {
+#modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */

@@ -1,7 +1,7 @@
-const newBook = document.querySelector("button[id='new']")
-const modal = document.getElementById("myModal")
-const span = document.getElementsByClassName("close")[0]
-const add = document.getElementById("submit")
+const newBook = document.getElementById("newBook")
+const modal = document.getElementById("modal")
+const span = document.querySelector("span[class='close']")
+const submit = document.getElementById("submit")
 const cardHolder = document.querySelector("div[class='card-holder']")
 
 function Book(title, author, pages, isRead) {
@@ -26,7 +26,11 @@ class Library {
   }
 
   removeBook(title) {
-    this.books = this.books.filter((book) => book.title != title)
+    this.books = this.books.filter((book) => book.title !== title)
+  }
+
+  isBookInBooks(title) {
+    return this.books.some((book) => book.title === title)
   }
 }
 
@@ -77,34 +81,56 @@ function createCard(book) {
   cardHolder.append(card)
 }
 
-const toggleIsRead = (event) => {
-  event.target.innerText = (event.target.innerText == "Read") ? "Not Read" : "Read"
+function toggleIsRead(event) {
+  event.target.innerText = (event.target.innerText === "Read") ? "Not Read" : "Read"
   const title = event.target.parentNode.firstChild.innerText
   const book = library.getBook(title)
   book.isRead = !book.isRead
 }
 
-const removeCard = (event) => {
+function removeCard(event) {
   const title = event.target.parentNode.firstChild.innerText
   library.removeBook(title)
   event.target.parentNode.remove()
 }
 
 // popup to add another book
-newBook.addEventListener("click", () => {
-  // show popup w/ entry fields
-  modal.style.display = "block";
-})
+newBook.onclick = () => modal.style.display = "block"
 
 // When the user clicks on <span> (x), close the modal
-span.addEventListener("click", () => {
-  modal.style.display = "none";
-})
+span.onclick = () => modal.style.display = "none"
+
 // When the user clicks anywhere outside of the modal, close it
-window.addEventListener("click", (e) => {
-  if (e.target == modal) {
-    modal.style.display = "none";
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none"
   }
-})
+}
+
+submit.onclick = (event) => {
+  const title = document.getElementById("title").value
+  const author = document.getElementById("author").value
+  const pages = document.getElementById("pages").value
+  const status = document.getElementById("isRead")
+  const isRead = (status.options[status.selectedIndex].innerText === "Read") ? true : false
+  
+  console.log(title)
+  console.log(author)
+  console.log(pages)
+  console.log(status)
+  console.log(isRead)
+
+  if (library.isBookInBooks(title)) {
+    // return error message
+  }
+  else {
+    library.addBook(title, author, pages, isRead)
+  }
+  
+  displayBooks()
+  span.click()
+  // clear data from fields
+  // store data
+}
 
 displayBooks()

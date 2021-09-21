@@ -12,19 +12,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px;
-    background-color: rgb(235,236,237);
+    padding: 10px 0px;
+    /* background-color: rgb(235,236,237); */
 }
 
 #new {
     border: none;
     border-radius: 2px;
     padding: 5px;
-    background-color: rgb(235,236,237);
+    background-color: white;
 }
 
 #new:hover {
-    background-color: rgb(155,154,151,0.4);
+    background-color: rgb(235,236,237); /*rgb(155,154,151,0.4);*/
 }
 
 .read {
@@ -70,6 +70,10 @@ header {
     margin: 10px;
     flex-basis: 30%;
     border-radius: 2px;
+}
+
+.card:hover {
+    background-color: rgb(235,236,237);
 }
 
 /* The Modal (background) */

@@ -61,7 +61,7 @@ function createCard(book) {
   const remove = document.createElement("button")
   
   card.classList.add('card')
-  isRead.classList.add('read')
+  book.isRead ? isRead.classList.add('read') : isRead.classList.add('not-read')
   remove.classList.add('remove')
   
   title.innerText = book.title
@@ -82,7 +82,17 @@ function createCard(book) {
 }
 
 function toggleIsRead(event) {
-  event.target.innerText = (event.target.innerText === "Read") ? "Not Read" : "Read"
+  if (event.target.innerText === "Read") {
+    event.target.classList.remove("read")
+    event.target.classList.add("not-read")
+    event.target.innerText = "Not Read"
+  }
+  else {
+    event.target.classList.remove("not-read")
+    event.target.classList.add("read")
+    event.target.innerText = "Read"
+  }
+  
   const title = event.target.parentNode.firstChild.innerText
   const book = library.getBook(title)
   book.isRead = !book.isRead

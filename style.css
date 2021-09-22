@@ -32,12 +32,22 @@ header {
     border: none;
     border-radius: 0.2em;
     padding: 0.5em;
-    display: block;
     background-color: rgb(77,171,154,0.2);
 }
 
 .read:hover {
     background-color: rgb(77,171,154,0.5);
+}
+
+.not-read {
+    border: none;
+    border-radius: 0.2em;
+    padding: 0.5em;
+    background-color: rgb(155,154,151,0.4);
+}
+
+.not-read:hover {
+    background-color: rgb(155,154,151,0.7);
 }
 
 .remove {

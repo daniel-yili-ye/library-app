@@ -13,7 +13,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1em 0;
-    /* background-color: rgb(235,236,237); */
+    margin: 0 10%;
 }
 
 #newBook {
@@ -55,8 +55,13 @@ header {
     .card-holder {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 1em;
     }
+}
+
+.card-holder {
+    display: grid;
+    gap: 1em;
+    margin: 0 10%;
 }
 
 .card {
@@ -77,7 +82,7 @@ header {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 8em; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -93,6 +98,7 @@ header {
     margin: auto;
     padding: 2em;
     width: 80%;
+    max-width: 50em;
     border-radius: 0.2em;
     box-shadow: 0 0 2em rgb(0,0,0,0.5);
 }
@@ -101,7 +107,7 @@ header {
   .close {
     color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 1.5em;
     font-weight: bold;
 }
   
@@ -113,11 +119,11 @@ header {
 
 input[type=text], input[type=number], select {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding: 1em;
+    margin: 0.5em 0;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 2px;
+    border: 0.1em solid #ccc;
+    border-radius: 0.2em;
     box-sizing: border-box;
 }
 
@@ -129,8 +135,8 @@ input[id=submit] {
     width: 100%;
     background-color: rgb(91, 175, 228);
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
+    padding: 1em;
+    margin: 0.5em 0;
     border: none;
     border-radius: 0.2em;
     cursor: pointer;

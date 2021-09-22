@@ -14,6 +14,7 @@ header {
     align-items: center;
     padding: 1em 0;
     margin: 0 10%;
+    border-bottom: 0.1em solid rgb(206,205,202);
 }
 
 #newBook {
@@ -54,19 +55,20 @@ header {
 @media (min-width: 50em) { /* Anything above this breakpoint will have this */
     .card-holder {
         display: grid;
+        gap: 1em;
         grid-template-columns: repeat(4, 1fr);
+        margin: 1em 10%;
     }
 }
 
 .card-holder {
     display: grid;
+    margin: 1em 10%;
     gap: 1em;
-    margin: 0 10%;
 }
 
 .card {
-    border: 1px solid;
-    border-color: rgb(206,205,202);
+    border: 0.1em solid rgb(206,205,202);
     box-shadow: 0 0.1em 0.2em grey;
     padding: 1em;
     flex-basis: 30%;
@@ -125,10 +127,6 @@ input[type=text], input[type=number], select {
     border: 0.1em solid #ccc;
     border-radius: 0.2em;
     box-sizing: border-box;
-}
-
-#status {
-    margin: 8px 0;
 }
   
 input[id=submit] {

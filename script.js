@@ -123,22 +123,16 @@ submit.onclick = (event) => {
   const pages = document.getElementById("pages").value
   const status = document.getElementById("isRead")
   const isRead = (status.options[status.selectedIndex].innerText === "Read") ? true : false
-  
-  console.log(title)
-  console.log(author)
-  console.log(pages)
-  console.log(status)
-  console.log(isRead)
 
   if (library.isBookInBooks(title)) {
     // return error message
   }
   else {
     library.addBook(title, author, pages, isRead)
+    displayBooks()
+    span.click()
   }
   
-  displayBooks()
-  span.click()
   // clear data from fields
   document.getElementById("title").value = ""
   document.getElementById("author").value = ""

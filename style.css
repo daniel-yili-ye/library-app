@@ -129,8 +129,18 @@ header {
     cursor: pointer;
 }
 
+.inline {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+label {
+    width: 4em;
+}
+
 input[type=text], input[type=number], select {
-    width: 100%;
+    flex: 1;
     padding: 1em;
     margin: 0.5em 0;
     display: inline-block;

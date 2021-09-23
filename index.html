@@ -20,21 +20,28 @@
             <span class="close">&times;</span>
             <h1>New Book</h1>
             <form>
-                <label for="title">Title</label>
-                <input type="text" id="title" name="booktitle" placeholder="Book Title...">
+                <div class="inline">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="booktitle" placeholder="Book Title...">
+                </div>
 
-                <label for="author">Author</label>
-                <input type="text" id="author" name="bookauthor" placeholder="Book Author...">
+                <div class="inline">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="bookauthor" placeholder="Book Author...">
+                </div>
 
-                <label for="pages">Pages</label>
-                <input type="number" id="pages" name="bookpages" placeholder="Number of Pages...">
+                <div class="inline">
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages" name="bookpages" placeholder="Number of Pages...">
+                </div>
 
-                <label for="status">Status</label>
-
-                <select id="isRead" name="isRead">
-                    <option value="read">Read</option>
-                    <option value="notread">Not Read</option>
-                </select>
+                <div class="inline">
+                    <label for="status">Status</label>
+                    <select id="isRead" name="isRead">
+                        <option value="read">Read</option>
+                        <option value="notread">Not Read</option>
+                    </select>
+                </div>
 
                 <input type="button" value="Add" id="submit">
             </form>

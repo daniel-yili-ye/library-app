@@ -7,4 +7,4 @@ A catalogue to keep track of your reads.
 - Return error message for modal when title already exists
 - Fix side padding -> Done
 - Implement login and data storage
-- Fix modal styling to match Notion styling
+- Fix modal styling to match Notion styling -> Done

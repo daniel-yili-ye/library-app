@@ -62,7 +62,7 @@ header {
     background-color: rgb(255,115,105,0.5);
 }
 
-@media (min-width: 50em) { /* Anything above this breakpoint will have this */
+@media (min-width: 40em) { /* Anything above this breakpoint will have this */
     .card-holder {
         display: grid;
         gap: 1em;

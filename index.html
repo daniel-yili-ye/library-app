@@ -22,7 +22,8 @@
             <form>
                 <div class="inline">
                     <label for="title">Title</label>
-                    <input type="text" id="title" name="booktitle" placeholder="Book Title">
+                    <input type="text" id="title" name="booktitle" placeholder="Book Title"
+                        oninvalid="this.setCustomValidity('Enter User Name Here')" oninput="this.setCustomValidity('')">
                 </div>
 
                 <div class="inline">

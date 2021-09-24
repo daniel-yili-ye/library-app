@@ -126,6 +126,7 @@ submit.onclick = () => {
 
   if (library.isBookInBooks(title)) {
     // return error message
+    console.log(true)
   }
   else {
     library.addBook(title, author, pages, isRead)

@@ -1,8 +1,10 @@
+let isNotError = true
 const newBook = document.getElementById("newBook")
 const modal = document.getElementById("modal")
 const span = document.querySelector("span[class='close']")
 const submit = document.getElementById("submit")
 const cardHolder = document.querySelector("div[class='card-holder']")
+const titleBox = document.querySelector("input[id='title']")
 
 function Book(title, author, pages, isRead) {
   this.title = title
@@ -125,12 +127,15 @@ submit.onclick = () => {
   const isRead = (status.options[status.selectedIndex].innerText === "Read") ? true : false
 
   if (library.isBookInBooks(title)) {
-    // return error message
-    const titleDiv = document.querySelector("div[class='inline']")
-    const errorMessage = document.createElement("p")
-    errorMessage.innerText = "Please provide a unique title."
-    errorMessage.classList.add("error")
-    titleDiv.parentNode.insertBefore(errorMessage, titleDiv.nextSibling)
+    if (isNotError) {
+      const titleDiv = document.querySelector("div[class='inline']")
+      const errorMessage = document.createElement("p")
+      errorMessage.innerText = "Please provide a unique title."
+      errorMessage.classList.add("errorMessage")
+      titleDiv.parentNode.insertBefore(errorMessage, titleDiv.nextSibling)
+      titleBox.classList.add("titleStyle")
+      isNotError = false
+    }
   }
   else {
     library.addBook(title, author, pages, isRead)
@@ -145,6 +150,11 @@ submit.onclick = () => {
   status.options[status.selectedIndex].innerText = "Read"
 
   // store data
+}
+
+titleBox.onclick = () => {
+  // remove errorMessage element
+  // remove titleStyle class
 }
 
 displayBooks()

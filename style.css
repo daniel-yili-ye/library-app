@@ -164,6 +164,12 @@ input[id=submit]:hover {
     background-color: rgb(82,156,202);
 }
 
-.error {
-    margin-left: 4em;
+.errorMessage {
+    margin-left: 5em;
+    font-size: 0.8em;
+    color:red;
+}
+
+.titleStyle {
+    border: 0.1em solid red !important;
 }

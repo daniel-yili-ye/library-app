@@ -126,7 +126,11 @@ submit.onclick = () => {
 
   if (library.isBookInBooks(title)) {
     // return error message
-    console.log(true)
+    const titleDiv = document.querySelector("div[class='inline']")
+    const errorMessage = document.createElement("p")
+    errorMessage.innerText = "Please provide a unique title."
+    errorMessage.classList.add("error")
+    titleDiv.parentNode.insertBefore(errorMessage, titleDiv.nextSibling)
   }
   else {
     library.addBook(title, author, pages, isRead)

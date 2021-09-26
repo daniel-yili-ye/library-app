@@ -163,3 +163,7 @@ input[id=submit] {
 input[id=submit]:hover {
     background-color: rgb(82,156,202);
 }
+
+.error {
+    margin-left: 4em;
+}

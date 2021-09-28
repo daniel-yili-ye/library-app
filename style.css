@@ -17,14 +17,14 @@ header {
     border-bottom: 0.1em solid rgb(206,205,202);
 }
 
-#newBook {
+.headerBtn {
     border: none;
     border-radius: 0.2em;
     padding: 0.5em;
     background-color: white;
 }
 
-#newBook:hover {
+.headerBtn:hover {
     background-color: rgb(235,236,237); /*rgb(155,154,151,0.4);*/
 }
 
@@ -116,7 +116,7 @@ header {
 }
   
   /* The Close Button */
-  .close {
+.close {
     color: #aaaaaa;
     float: right;
     font-size: 1.5em;
@@ -172,4 +172,26 @@ input[id=submit]:hover {
 
 .titleStyle {
     border: 0.1em solid red !important;
+}
+
+.navbar {
+    display: flex;
+    justify-content: right;
+}
+
+#newBook {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.1em none rgb(206,205,202);
+    background-color: white;
+    color: grey;
+    box-shadow: 0 0.1em 0.2em grey;
+    padding: 1em;
+    flex-basis: 30%;
+    border-radius: 0.2em;
+}
+
+#newBook:hover {
+    background-color: rgb(235,236,237);
 }

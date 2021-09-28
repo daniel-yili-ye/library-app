@@ -1,4 +1,3 @@
-const newBook = document.getElementById("newBook")
 const modal = document.getElementById("modal")
 const span = document.querySelector("span[class='close']")
 const submit = document.getElementById("submit")
@@ -51,6 +50,14 @@ function displayBooks() {
 
 function resetBooks() {
   cardHolder.innerHTML = ""
+  const card = document.createElement("button")
+  card.innerHTML = "+ New"
+  // card.classList.add('card')
+  card.setAttribute('id','newBook')
+  cardHolder.append(card)
+  const newBook = document.getElementById("newBook")
+  // popup to add another book
+  newBook.onclick = () => modal.style.display = "block"
 }
 
 function createCard(book) {
@@ -104,9 +111,6 @@ function removeCard(event) {
   library.removeBook(title)
   event.target.parentNode.remove()
 }
-
-// popup to add another book
-newBook.onclick = () => modal.style.display = "block"
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = () => modal.style.display = "none"

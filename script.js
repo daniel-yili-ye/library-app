@@ -1,4 +1,3 @@
-let isNotError = true
 const newBook = document.getElementById("newBook")
 const modal = document.getElementById("modal")
 const span = document.querySelector("span[class='close']")
@@ -127,15 +126,12 @@ submit.onclick = () => {
   const isRead = (status.options[status.selectedIndex].innerText === "Read") ? true : false
 
   if (library.isBookInBooks(title)) {
-    if (isNotError) {
-      const titleDiv = document.querySelector("div[class='inline']")
-      const errorMessage = document.createElement("p")
-      errorMessage.innerText = "Please provide a unique title."
-      errorMessage.classList.add("errorMessage")
-      titleDiv.parentNode.insertBefore(errorMessage, titleDiv.nextSibling)
-      titleBox.classList.add("titleStyle")
-      isNotError = false
-    }
+    const titleDiv = document.querySelector("div[class='inline']")
+    const errorMessage = document.createElement("p")
+    errorMessage.innerText = "Please provide a unique title."
+    errorMessage.classList.add("errorMessage")
+    titleDiv.parentNode.insertBefore(errorMessage, titleDiv.nextSibling)
+    titleBox.classList.add("titleStyle")
   }
   else {
     library.addBook(title, author, pages, isRead)
@@ -153,8 +149,15 @@ submit.onclick = () => {
 }
 
 titleBox.onclick = () => {
-  // remove errorMessage element
-  // remove titleStyle class
+  try {
+    // remove errorMessage element
+    document.querySelector("p[class='errorMessage']").remove()
+    // remove titleStyle class on title textbox
+    document.querySelector("input[id='title']").classList.remove("titleStyle")
+  }
+  catch {
+    return
+  }
 }
 
 displayBooks()

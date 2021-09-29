@@ -3,6 +3,7 @@ const span = document.querySelector("span[class='close']")
 const submit = document.getElementById("submit")
 const cardHolder = document.querySelector("div[class='card-holder']")
 const titleBox = document.querySelector("input[id='title']")
+const newNavButton = document.querySelector("button[class='headerBtn']")
 
 function Book(title, author, pages, isRead) {
   this.title = title
@@ -19,6 +20,7 @@ class Library {
   addBook(title, author, pages, isRead) {
     const book = new Book(title, author, pages, isRead)
     this.books.push(book)
+    saveToStorage()
   }
 
   getBook(title) {
@@ -27,6 +29,7 @@ class Library {
 
   removeBook(title) {
     this.books = this.books.filter((book) => book.title !== title)
+    saveToStorage()
   }
 
   isBookInBooks(title) {
@@ -35,13 +38,14 @@ class Library {
 }
 
 const library = new Library()
-library.addBook("Bible", "God", 1000, true)
-library.addBook("The Hobbit", "Tolkien", 965, true)
-library.addBook("Heat Shock Proteins", "Joe Rogan", 203, false)
-library.addBook("Metaphysics of Pepe", "Jordan Peterson", 9030, false)
-library.addBook("OK BOOMER", "TikTok", 90, true)
+// library.addBook("Bible", "God", 1000, true)
+// library.addBook("The Hobbit", "Tolkien", 965, true)
+// library.addBook("Heat Shock Proteins", "Joe Rogan", 203, false)
+// library.addBook("Metaphysics of Pepe", "Jordan Peterson", 9030, false)
+// library.addBook("OK BOOMER", "TikTok", 90, true)
 
 function displayBooks() {
+  checkStorage()
   resetBooks()
   for (let book of library.books) {
     createCard(book)
@@ -104,6 +108,7 @@ function toggleIsRead(event) {
   const title = event.target.parentNode.firstChild.innerText
   const book = library.getBook(title)
   book.isRead = !book.isRead
+  saveToStorage()
 }
 
 function removeCard(event) {
@@ -141,6 +146,7 @@ submit.onclick = () => {
     library.addBook(title, author, pages, isRead)
     displayBooks()
     span.click()
+    // store data
   }
   
   // clear data from fields
@@ -148,8 +154,6 @@ submit.onclick = () => {
   document.getElementById("author").value = ""
   document.getElementById("pages").value = ""
   status.options[status.selectedIndex].innerText = "Read"
-
-  // store data
 }
 
 titleBox.onclick = () => {
@@ -162,6 +166,23 @@ titleBox.onclick = () => {
   catch {
     return
   }
+}
+
+newNavButton.onclick = () => modal.style.display = "block"
+
+function saveToStorage() {
+  for (let i=0; i<library.books.length; i++) {
+    localStorage.setItem(library.books[i].title, `{${library.books[i].author}, ${library.books[i].pages}, ${library.books[i].isRead}}`)
+  }
+}
+
+function checkStorage() {
+  for (let i=0; i<sessionStorage.length; i++) {
+    let a = sessionStorage.key(i)
+    let b = sessionStorage.getItem(a)
+    console.log(b)
+  }
+  localStorage.getItem()
 }
 
 displayBooks()

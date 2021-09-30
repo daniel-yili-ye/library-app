@@ -20,7 +20,6 @@ class Library {
   addBook(title, author, pages, isRead) {
     const book = new Book(title, author, pages, isRead)
     this.books.push(book)
-    saveToStorage()
   }
 
   getBook(title) {
@@ -144,6 +143,7 @@ submit.onclick = () => {
   }
   else {
     library.addBook(title, author, pages, isRead)
+    saveToStorage()
     displayBooks()
     span.click()
     // store data
@@ -172,17 +172,20 @@ newNavButton.onclick = () => modal.style.display = "block"
 
 function saveToStorage() {
   for (let i=0; i<library.books.length; i++) {
-    localStorage.setItem(library.books[i].title, `{${library.books[i].author}, ${library.books[i].pages}, ${library.books[i].isRead}}`)
+    localStorage.setItem(library.books[i].title, `${library.books[i].author},${library.books[i].pages},${library.books[i].isRead}`)
   }
 }
 
 function checkStorage() {
-  for (let i=0; i<sessionStorage.length; i++) {
-    let a = sessionStorage.key(i)
-    let b = sessionStorage.getItem(a)
-    console.log(b)
+  for (let i=0; i<localStorage.length; i++) {
+    let title = localStorage.key(i)
+    let value = localStorage.getItem(title).split(",")
+    let author = value[0]
+    let pages = Number(value[1])
+    let isRead = value[2] == 'true'
+    
+    library.addBook(title, author, pages, isRead)
   }
-  localStorage.getItem()
 }
 
 displayBooks()

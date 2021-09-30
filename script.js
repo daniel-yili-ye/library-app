@@ -28,7 +28,7 @@ class Library {
 
   removeBook(title) {
     this.books = this.books.filter((book) => book.title !== title)
-    saveToStorage()
+    localStorage.removeItem(title)
   }
 
   isBookInBooks(title) {
@@ -186,5 +186,6 @@ function checkStorage() {
     library.addBook(title, author, pages, isRead)
   }
 }
+
 checkStorage()
 displayBooks()

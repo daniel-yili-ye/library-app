@@ -44,7 +44,7 @@ const library = new Library()
 // library.addBook("OK BOOMER", "TikTok", 90, true)
 
 function displayBooks() {
-  checkStorage()
+  // duplicates the entire library array; gotta fix it so that it doesnt do that
   resetBooks()
   for (let book of library.books) {
     createCard(book)
@@ -55,7 +55,6 @@ function resetBooks() {
   cardHolder.innerHTML = ""
   const card = document.createElement("button")
   card.innerHTML = "+ New"
-  // card.classList.add('card')
   card.setAttribute('id','newBook')
   cardHolder.append(card)
   const newBook = document.getElementById("newBook")
@@ -187,5 +186,5 @@ function checkStorage() {
     library.addBook(title, author, pages, isRead)
   }
 }
-
+checkStorage()
 displayBooks()

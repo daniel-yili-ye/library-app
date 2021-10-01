@@ -37,11 +37,6 @@ class Library {
 }
 
 const library = new Library()
-// library.addBook("Bible", "God", 1000, true)
-// library.addBook("The Hobbit", "Tolkien", 965, true)
-// library.addBook("Heat Shock Proteins", "Joe Rogan", 203, false)
-// library.addBook("Metaphysics of Pepe", "Jordan Peterson", 9030, false)
-// library.addBook("OK BOOMER", "TikTok", 90, true)
 
 function displayBooks() {
   // duplicates the entire library array; gotta fix it so that it doesnt do that
